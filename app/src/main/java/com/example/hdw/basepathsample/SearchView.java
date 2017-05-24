@@ -36,15 +36,15 @@ public class SearchView extends View {
         mPathMeasure = new PathMeasure();
 
         mPath.addCircle(0,0,mRadius, Path.Direction.CW);
-        mPath.moveTo((float)(mRadius*Math.sin(45)),(float)(mRadius*Math.cos(45)));
-        mPath.rLineTo((float)(mRadius*Math.sin(45)),(float)(mRadius*Math.cos(45)));
+        mPath.moveTo(mRadius,0);
+        mPath.rLineTo(mRadius,0);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.translate(canvas.getWidth()/2,canvas.getHeight()/2);
-
+        canvas.rotate(45);
 
         mPathMeasure.setPath(mPath,true);
         mPathMeasure.getSegment(100,mPathMeasure.getLength(),mDstPath,true);
